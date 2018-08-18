@@ -1,0 +1,63 @@
+<ion-header class="inputsPageHeader successsharego">
+  <ion-navbar hideBackButton>
+	  <ion-buttons end>
+    <button ion-button (click)="backToList()" class="closebutton"><ion-icon name="close-circle"></ion-icon></button>
+	  </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+
+
+  
+
+    <div class="redeemSuccess">
+        <h2 class="headingRecip removebox" style="white-space:nowrap">Notify Recipient</h2>
+    
+    
+    <div class="socialShare">
+  <!--       <button ion-button (click)="shareViaMessage();"><ion-icon name="md-chatboxes"></ion-icon></button> -->
+    <!--     <button ion-button (click)="shareViaEmail();"><ion-icon name="md-mail"></ion-icon></button> -->
+<!--        <button ion-button (click)="shareViaFacebook();"><i class="fa fa-commenting"></i></button>-->
+<!--         <button ion-button (click)="shareViaFacebook();" style="width: 15% !important;">
+            <img src="assets/img/messenger.png"> -->
+    <!--     </button>  --> 
+<div>
+    <span>
+    <button ion-button (click)="shareViaMessage();" style="width: 20% !important;">
+            <img src="assets/img/message.png">
+        </button>
+
+            <button ion-button (click)="shareViaEmail();" style="width: 20% !important;">
+            <img src="assets/img/gmail.png">
+        </button>  <button ion-button (click)="shareViaFacebook();" style="width: 20% !important;">
+            <img src="assets/img/messenger.png">
+        </button> 
+    </span></div>
+    <div>
+        <span>
+         <button ion-button (click)="shareViaTwitter();" style="width: 22% !important;">
+            <img src="assets/img/twitter.png">
+        </button>    
+            <button ion-button class="whatsapp" (click)="shareViaWhatsapp();" style="width: 21% !important;">
+            <img src="assets/img/whatsapp.png">
+        </button>     
+        </span>
+    </div>
+    <!--     <button ion-button (click)="shareViaTwitter();"><ion-icon name="logo-twitter"></ion-icon></button>
+        <button ion-button (click)="shareViaWhatsapp();"><ion-icon name="logo-whatsapp"></ion-icon></button>
+         -->
+    </div>
+    
+    <p class="noteinfo">Note: Card is transfered to {{mobile}}</p>
+
+    </div>
+    
+  
+
+    
+    
+</ion-content>
+

@@ -1,0 +1,121 @@
+coopCardCoins{
+	 .coinalign{
+                 
+            float: left!important;
+            text-align: left!important;
+                width: 100% !important;
+            }  
+    
+    .hideSlide{
+       
+        position: relative;
+        &:after{
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            left: 0;
+            right: 0;
+        }
+    }
+    
+   /* 
+    
+    .hideSlide{
+		background: rgba(0,0,0,0.5) !important;
+	}
+    
+    */
+     #card-stack {
+    width: 90%;
+    height: 200px;
+    background: #047915;
+    border: 10px solid #4cb338;
+    margin: 100px auto 0;
+    position: relative;
+  }
+ 
+  #card-stack ion-card {
+    border-radius: 5px;
+    position: absolute;
+    text-align: center;
+    top: 3%;
+    height: 90%;
+  }
+    
+    
+    
+	.balence{
+	    padding-top: 16px;
+	}
+	
+.dispalyBlk{
+        display: block !important;
+    }
+	
+	ion-card{
+		width:100% !important;
+		margin:0px 0px 16px 0 !important;
+		border-radius: 10px !important;
+		
+		.giftCardImg{
+			height: 160px;
+			width:100%;
+			max-width:100%;
+			background-size:cover !important;
+			background-repeat:no-repeat !important;
+			background-position:center !important;
+		}
+		ion-card-content{
+			padding:0 10px !important;
+			ion-card-title{
+				font-size: 1.8rem !important;
+				color: #222 !important;
+				margin:0px !important;
+				font-weight: 600;
+			}
+			h6, p{
+				font-size: 14px !important;
+				margin-bottom:10px !important;
+				width: 50%;
+				color: #000 !important;
+				//text-align: center !important;
+				span{
+					display: block;
+					font-size: 20px;
+					line-height: 24px;
+					font-weight: 600;
+					color: #666;
+				}
+			}
+			h6{
+				float: left;
+				white-space:nowrap;
+				color: #ff0000 !important;
+			}
+			p{
+				float: right;
+				text-align: right;
+				
+				i{
+					vertical-align: middle;
+				}
+			}
+            
+             
+            
+		}
+	}
+	ion-card:last-child{
+		margin:0px !important;
+	}
+}
+
+@media(max-width:345px){
+	viewcards ion-card ion-card-content p, viewcards ion-card ion-card-content h6{
+		font-size:12px !important;
+	}
+   
+
+}

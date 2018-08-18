@@ -1,0 +1,134 @@
+<ion-header>
+    <ion-navbar hideBackButton>
+        <button ion-button menuToggle>
+      <ion-icon name="md-menu"></ion-icon>
+    </button>
+        <ion-title>{{ 'Dashboard' | translate }}</ion-title>
+
+            <ion-buttons end >
+            <button ion-button class="filterIcon" (click)="filterShow()">
+                <ion-icon name="ios-funnel-outline"></ion-icon>
+            </button>
+        </ion-buttons>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="redeemInputs">
+    <ion-refresher (ionRefresh)="doRefresh($event)" >
+    <ion-refresher-content> </ion-refresher-content>
+  </ion-refresher>
+    <div class="dashboardLists">
+        <h1>GIFT CARDS</h1>
+        <div class="dashboardListsInner">
+            <i class="fa fa-id-card"></i>
+            <div class="dashboardListsContent">
+                <p>Value of Card Issued</p>
+                <h4>${{getRoundUpvalue(creditPointsgift)}} <span *ngIf="isShowGiftVariation">{{giftdiff}}% <ion-icon *ngIf="!giftisIncreased" name="md-arrow-down"></ion-icon><ion-icon *ngIf="giftisIncreased" name="md-arrow-up"></ion-icon></span></h4>
+                <p>Total till date </p>
+                <h5>${{getRoundUpvalue(creditPoints)}}</h5>
+            </div>
+        </div>
+        <div class="dashboardListsInner">
+            <i class="fa fa-credit-card"></i>
+            <div class="dashboardListsContent">
+                <p>Value Redeemed</p>
+                <h4>${{getRoundUpvalue(giftCardRedeemCountgift)}} <span *ngIf="isShowGiftVariationRedeem">{{giftRedeemdiff}}% <ion-icon *ngIf="!giftisIncreasedRedeem" name="md-arrow-down"></ion-icon><ion-icon *ngIf="giftisIncreasedRedeem" name="md-arrow-up"></ion-icon></span> </h4>
+                <p>Total till date</p>
+                <h5>${{getRoundUpvalue(giftCardRedeemCount)}}</h5>
+            </div>
+        </div>
+    </div>
+    
+    <div class="dashboardLists">
+        <h1>PUNCH CARDS</h1>
+        <div class="dashboardListsInner">
+            <i class="fa fa-id-card"></i>
+            <div class="dashboardListsContent">
+                <p>Cards issued</p>
+                <h4>{{punchCardCountpunch}}</h4>
+                <p>Total Punches</p>
+                <h5>{{punchCount}}</h5>
+            </div>
+        </div>
+        <div class="dashboardListsInner">
+            <i class="fa fa-credit-card"></i>
+            <div class="dashboardListsContent">
+                <p>Utilized</p>
+                <h4>{{punchCardReedemCountpunch}}</h4>
+                <p>Total Punches</p>
+                <h5>{{punchCardReedemCount}}</h5>
+            </div>
+        </div>
+    </div>
+
+
+      <div class="dashboardLists">
+        <h1>COUPON CODES</h1>
+        <div class="dashboardListsInner">
+            <i class="fa fa-id-card"></i>
+            <div class="dashboardListsContent">
+                <p>Coupons issued</p>
+                <h4>{{couponCountcoupon}}</h4>
+                <p>Total Coupons</p>
+                <h5>{{couponCount}}</h5>
+            </div>
+        </div>
+        <div class="dashboardListsInner">
+            <i class="fa fa-credit-card"></i>
+            <div class="dashboardListsContent">
+                <p>Utilized</p>
+                <h4>{{couponReedemCountcoupon}}</h4>
+                <p>Total Coupons</p>
+                <h5>{{couponReedemCount}}</h5>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="dashboardLists">
+        <h1>STORE CREDITS</h1>
+        <div class="dashboardListsInner">
+            <i class="fa fa-id-card"></i>
+            <div class="dashboardListsContent">
+                <p>Value of Card Issued</p>
+                <h4>${{getRoundUpvalue(storecreditstore)}}<span *ngIf="isShowstorediff">{{storediff}}% <ion-icon *ngIf="!storeisIncreasedstorediff" name="md-arrow-down"></ion-icon><ion-icon *ngIf="storeisIncreasedstorediff" name="md-arrow-up"></ion-icon></span></h4>
+                <p>Total till date </p>
+                <h5>${{getRoundUpvalue(storecredit)}}</h5>
+            </div>
+        </div>
+        <div class="dashboardListsInner">
+            <i class="fa fa-credit-card"></i>
+            <div class="dashboardListsContent">
+                <p>Value Redeemed</p>
+                <h4>${{getRoundUpvalue(storeCardRedeemCountstore)}}<span *ngIf="isShowstoreRedeemdiff">{{storeRedeemdiff}}% <ion-icon *ngIf="!storeisIncreasedstoreRedeemdiff" name="md-arrow-down"></ion-icon><ion-icon *ngIf="storeisIncreasedstoreRedeemdiff" name="md-arrow-up"></ion-icon></span></h4>
+                <p>Total till date</p>
+                <h5>${{getRoundUpvalue(storeCardRedeemCount)}}</h5>
+            </div>
+        </div>
+    </div>
+
+
+     <div class="dashboardLists">
+        <h1>CLOOP COINS</h1>
+        <div class="dashboardListsInner">
+            <i class="fa fa-id-card"></i>
+            <div class="dashboardListsContent">
+                <p>Value of Coins Issued</p>
+                <h4>{{coinCount}}</h4>
+                <p>Total till date</p>
+                <h5>{{coinCountCoin}}</h5>
+            </div>
+        </div>
+        <div class="dashboardListsInner">
+            <i class="fa fa-credit-card"></i>
+            <div class="dashboardListsContent">
+                <p>Value Redeemed</p>
+                <h4>{{coinReedemCount}}</h4>
+                <p>Total till date</p>
+                <h5>{{coinReedemCountCoin}}</h5>
+            </div>
+        </div>
+    </div>
+    
+</ion-content>

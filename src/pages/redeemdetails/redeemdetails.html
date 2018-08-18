@@ -1,0 +1,83 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ 'Redeem Details' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="redeemInputs">
+
+<ion-list no-lines>
+	
+	<ion-card>
+		
+<!--		  <img src="assets/img/cards/7eleven.png" width="100%" height="auto" >-->
+<img [(src)]="image" width="100%" height="auto" *ngIf="image!= ''">
+		
+		
+		
+		 <ion-card-content *ngIf="scannedtype== 'gift' ">
+        <ion-card-title>{{cardtitle}}</ion-card-title>
+		  <p>Gift</p>
+		  <h6>Expires on <span>{{carddate}}</span></h6>
+      </ion-card-content>
+
+      	 <ion-card-content *ngIf="scannedtype== 'store' ">
+        <ion-card-title>{{cardtitle}}</ion-card-title>
+		  <p>Store</p>
+		  <h6>Expires on <span>{{carddate}}</span></h6>
+      </ion-card-content>
+
+      <ion-card-content *ngIf="scannedtype== 'coin' ">
+        <ion-card-title>{{cardtitle}}</ion-card-title>
+		  <p>Coins</p>
+		  <h6>Remaining Balance <span>{{getroundedcoins(carddate)}} coins</span></h6>
+      </ion-card-content>
+		
+		 <ion-card-content *ngIf="scannedtype== 'punch' ">
+        <ion-card-title>{{cardtitle}}</ion-card-title>
+		  <p>Punch</p>
+		  <h6>Expires on <span>{{carddate}}</span></h6>
+      </ion-card-content>
+		
+		 <ion-card-content *ngIf="scannedtype== 'coupon' ">
+        <ion-card-title>{{cardtitle}}</ion-card-title>
+		  <p>Coupon</p>
+		  <h6>Expires on <span>{{carddate}}</span></h6>
+      </ion-card-content>
+		
+	</ion-card>
+	<ion-item>
+     <ion-input [(ngModel)]="scannedCode" placeholder="Enter 10 Digit Code" id="scannedCode" name="scannedCode" type="text" readonly required></ion-input>
+    </ion-item>
+	<p *ngIf="submitted && scannedCode.length!=10" color="danger"   class="leftvalidation">Please enter QR code</p>
+	
+
+  <ion-item *ngIf="scannedtype== 'gift' || scannedtype== 'store'">
+<!--    <ion-input [(ngModel)]="price" type="text" placeholder="Enter Credits" required pattern="[0-9]*" type="tel"></ion-input>-->
+      
+        <ion-input [(ngModel)]="price" type="number" placeholder="Enter Credits" required pattern="[0-9]*"></ion-input>
+     
+  </ion-item>
+		<p *ngIf="submitted && price.length==0 && (scannedtype== 'gift' || scannedtype== 'store')" color="danger"   class="leftvalidation" >{{ 'Please enter the price' | translate }}</p>
+    
+      <p *ngIf="(submitted && validDecimal && price.length!=0)" color="danger"   class="leftvalidation">Please enter valid amount</p>
+
+<!-- my changes -->
+
+       <ion-item *ngIf="scannedtype== 'coin'">
+        <ion-input [(ngModel)]="totalcoins" type="number" placeholder="Enter Coins" required pattern="[0-9]*"></ion-input>
+     
+  </ion-item>
+		<p *ngIf="submitted && totalcoins.length==0 && (scannedtype== 'coin')" color="danger"   class="leftvalidation" >{{ 'Please enter the coins' | translate }}</p>
+</ion-list>
+	
+<button block ion-button class="redeemBut" (click)="cardtransactionapigift('store');" *ngIf="scannedtype== 'store'">{{ 'Redeem' | translate }}  </button>
+<button block ion-button class="redeemBut" (click)="cardtransactionapigift('gift');" *ngIf="scannedtype== 'gift'">{{ 'Redeem' | translate }}  </button>
+<button block ion-button class="redeemBut" (click)="cardtransactionapi();" *ngIf="scannedtype== 'punch'">{{ 'Punch' | translate }}  </button>
+<button block ion-button class="redeemBut" (click)="cardtransactionapi();" *ngIf="scannedtype== 'coupon'">{{ 'Redeem coupon' | translate }}  </button>
+
+<button block ion-button class="redeemBut" (click)="cardtransactionapicoins('coin');" *ngIf="scannedtype== 'coin'">{{ 'Redeem coins' | translate }}  </button>
+
+</ion-content>

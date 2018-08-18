@@ -1,0 +1,19 @@
+addnotifications {
+
+	textarea{
+		height:125px;
+	}
+	.notificationInfo{
+	    margin: 2px 0;
+	    font-size: 14px;
+	}
+	.sendBut{
+		width: auto;
+		padding-left: 25px;
+		padding-right: 25px;
+		float: right;
+		margin-top: 10px;
+		background:$buttons !important;
+		font-size:16px;
+	}
+}

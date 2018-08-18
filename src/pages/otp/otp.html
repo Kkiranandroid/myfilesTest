@@ -1,0 +1,26 @@
+<ion-content padding class="inputForms">
+	<div class="verticalAlignMiddle">
+    	<div class="verticalAlignMiddleChild">
+			<ion-list>
+                <div class="confirmations">
+                    <p>{{ 'Waiting to automatically detect an SMS sent to' | translate }}</p>
+					  <p>{{ mobilenumber }}</p>
+					
+                    <p>{{ 'Sit back and relax. Well notify you when were done verifying' | translate }}</p>
+					 <div class="otpTxtbxContainer" style="text-align:center;">
+                    <ion-input [(ngModel)]="otp" id="txt_otp" name="otp" type="tel" placeholder="Enter OTP" required></ion-input>
+                </div>
+                <div class="colorRed" [innerText]="errorOTP" style="color: red"> </div>
+                <p class="detect">{{ '(Enter the OTP in case, if we fail to detect the SMS automatically sent to' | translate }} {{mobilenumber}})</p>
+                <P class="resendOTP" *ngIf="resendCount<3" (click)="lnkResendOTPClick();">{{ 'Resend OTP' | translate }}</P>
+<P class="colorRed" *ngIf="resendCount==2" >{{ 'You are left with only one attempt to get OTP for verification' | translate }}</P>
+					
+					
+                </div>
+<!--                <button class="nextBut" ion-button (click)="viewcards();">{{ 'Next' | translate }}</button>-->
+				
+				 <button class="nextBut" ion-button (click)="verifyotp(mobilenumber);">{{ 'Next' | translate }}</button>
+			</ion-list>
+		</div>
+	</div>
+</ion-content>

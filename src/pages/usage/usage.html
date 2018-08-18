@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="md-menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'Usage' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    
+
+       <div *ngIf="usage.length!=0 "> 
+	  <ion-list>
+        <ion-item *ngFor="let list of usage" (click)="cardsdetails($event, list)">
+            <ion-avatar item-start>
+
+				  <!--<img *ngIf="list._id.cardDetails.cardImageUrl== '' " [src]="list._id.Logo">
+				  <img *ngIf="list._id.cardDetails.cardImageUrl!= '' "[src]="list._id.cardDetails.cardImageUrl">-->
+				
+				<div class="usageImg" *ngIf="list._id.cardDetails.cardImageUrl== '' " [style.background]="'url(' + list._id.Logo + ')'"></div>
+				<div class="usageImg" *ngIf="list._id.cardDetails.cardImageUrl!= '' " [style.background]="'url(' + list._id.cardDetails.cardImageUrl + ')'"></div>
+                
+<!--                <div class="usageImg"  [style.background]="'url(http://www.cloopcard.com/cloopapi/uploads/default.png)'"></div>-->
+				
+            </ion-avatar>
+            <h2>{{list._id.cardDetails.cardTitle}}</h2>
+			<p>#{{list.lastTransaction.TransId}}</p>
+            <p>{{list.lastTransaction.transactionDate}}</p>
+			
+            <h5 item-end *ngIf="list.lastTransaction.transactionType!= 'coupon'">${{list.lastTransaction.transactionUnit}}</h5>
+			
+			<h5 item-end *ngIf="list.lastTransaction.transactionType== 'coupon' && !(list._id.couponUsed)">notUsed</h5>
+			
+			<h5 item-end *ngIf="list.lastTransaction.transactionType== 'coupon' && list._id.couponUsed">Used</h5>
+			
+        </ion-item>
+    </ion-list>
+	</div>
+	 <div *ngIf="usage.length== 0 && loaded" class="noData" > {{ nodatamessage }}, {{ 'No transactions done' | translate }}</div>
+	
+	 <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+     <ion-infinite-scroll-content> </ion-infinite-scroll-content>
+     </ion-infinite-scroll>
+</ion-content>

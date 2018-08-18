@@ -1,0 +1,22 @@
+
+<ion-header>
+  <ion-navbar>
+      <button ion-button menuToggle>
+      <ion-icon name="md-menu"></ion-icon>
+    </button>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <h3 >Notification setting</h3>
+        <ion-item class="marginbtm">
+            <ion-label>Notify me</ion-label>
+            <ion-toggle [(ngModel)]="notificationOnOff" checked="true" (ionChange)="setNotificationSettings();"></ion-toggle>
+        </ion-item>
+     <
+
+</ion-content>

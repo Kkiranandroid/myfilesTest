@@ -1,0 +1,48 @@
+page-filter {
+    
+    .stsHead{
+		font-size:16px;
+		font-weight:600;
+		color:#222;
+		margin:0px;
+		padding-bottom:3px;
+	}
+	ion-item{
+		padding-left:0px !important;
+        
+	}
+	.item-inner {
+		border-bottom: 1px solid #dedede !important;
+	}
+	ion-label{
+		padding-left:16px;
+		font-size:16px;
+		color:#000 !important;
+	}
+    
+    .toggle-ios .toggle-checked{
+        background-color:#00AA8D;
+    }
+    
+    .marginbtm{
+        margin-bottom: 15px!important;
+    }
+    
+    ion-toggle.toggle-checked{
+	 .toggle-icon {
+		background-color: #80DEEA !important;;
+	}
+	.toggle-inner {
+		background-color: #00AA8D !important;;
+	}
+}
+    
+    //for input field edit
+     ion-input, ion-textarea{
+    
+    .input-cover{
+        pointer-events: auto !important;
+    }
+}
+
+}

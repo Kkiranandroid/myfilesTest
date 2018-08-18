@@ -1,0 +1,128 @@
+<ion-header>
+
+  <ion-navbar>
+	  <ion-title>{{cardTitle}}</ion-title>
+       <ion-buttons end >
+     <button ion-button class="filterIcon" (click)="sharecard()" *ngIf="showiconshare">
+                <ion-icon name="share"></ion-icon>
+            </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+	
+	
+    <div class="giftCardImg" [style.background]="'url(' + image + ')'"></div>
+<!--
+    
+     <div class="giftCardImg" [style.background]="'url(http://www.cloopcard.com/cloopapi/uploads/default.png)'"></div>
+-->
+	
+    <div class="giftCardDetails">
+		
+            
+    	<div class="giftCardDetailsInner" padding>
+        	<i class="fa fa-gift" aria-hidden="true"></i>
+            <h4>{{cardTitle}}</h4>
+            <hr>
+			<h4 *ngIf="insufficient">{{insufficient}}</h4>
+            
+            
+            <div *ngIf="insufficient== undefined">
+<!--
+            <div class="priceQuantity" >
+            	<h6 >{{balancetext}}</h6>
+                <h3 *ngIf="cardtype== 'gift' ">${{remainingCreditPoints}} </h3>
+                <h3 *ngIf="cardtype== 'punch' ">{{timesPunched}}/{{punchCount}} </h3>
+				<h3 *ngIf="cardtype== 'coupon' ">{{discountPercent}}%</h3>
+            </div>
+-->
+                
+                  <div class="priceQuantity" *ngIf="cardtype== 'punch' || cardtype== 'coupon' ">
+            	<h6 >{{balancetext}}</h6>
+                <h3 *ngIf="cardtype== 'punch' ">{{timesPunched}}/{{punchCount}} </h3>
+				<h3 *ngIf="cardtype== 'coupon' ">{{discountPercent}}%</h3>
+            </div>
+                
+                <div class="priceQuantitygift" *ngIf="cardtype== 'gift' ">
+                <h6 >{{balancetext}}</h6>
+                <h3 *ngIf="cardtype== 'gift' ">${{remainingCreditPoints}} </h3>
+                </div>
+
+               <!--  <div class="priceQuantitygift" *ngIf="cardtype== 'store' ">
+                <h6 >Expires on</h6>
+                <h3 *ngIf="cardtype== 'store' ">{{expiryDate}} </h3>
+                </div> -->
+                
+            <div class="priceQuantity" *ngIf="cardtype== 'store'">
+                <h6 >Remaining Balance</h6>
+                <h3 *ngIf="cardtype== 'store' ">${{remainingCreditPoints}}</h3>
+            </div>
+                
+                
+            <div class="priceQuantity" >
+            	<h6 *ngIf="cardtype== 'punch' || cardtype== 'coupon' || cardtype== 'store' ">Expires on</h6>
+                <h3 *ngIf="cardtype== 'punch' || cardtype== 'coupon'  || cardtype== 'store'">{{expiryDate}}</h3>
+            </div>
+             </div> 
+		</div>
+		
+        <div class="giftCardDetailsInner giftCardDetailsInner2" padding>
+        	<h5>{{ 'Show to the merchant' | translate }}</h5>
+			<h2>{{qrdigits}}</h2>
+            <div class="or"></div>
+    <ngx-qrcode [qrc-value]="qrimage"></ngx-qrcode>
+		</div>
+        
+         <div class="giftCardDetailsInner giftCardDetailsInner2" padding>
+			<h5>Message to the user</h5>
+			<div class="merchantInfo">
+				<p>{{messageUser}}</p>
+			</div>
+		</div>
+        
+        <div class="giftCardDetailsInner giftCardDetailsInner2" padding>
+			<h5>{{ 'Merchant Info' | translate }}</h5>
+			<div class="merchantInfo">
+				<img [(src)]="merchantlogo">
+				<h1>{{merchantName}}</h1>
+				<p><i class="fa fa-map-marker"></i> <span>{{address1}} {{address2}}, {{city}} - {{pincode}} {{state}} ({{country}})</span></p>
+               
+				<p *ngIf="businessNumber!= ''"><i class="fa fa-phone"></i> <span class="numberclass" (click)="dialclick(businessNumber)">{{businessNumber}}</span></p>
+                
+<!--
+                <p *ngIf="facebook!= '' && facebook!= undefined" >
+                <ion-icon name="logo-facebook"></ion-icon>
+                    <span class="underline" (click)="facebookclick(facebook)">{{facebook}}</span> </p>
+                <p *ngIf="linkedin!= '' && linkedin!= undefined" >
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                    <span class="underline" (click)="linkedinclick(linkedin)">{{linkedin}}</span> </p>
+                <p *ngIf="website!= '' && website!= undefined" ><ion-icon name="ios-globe-outline"></ion-icon>
+                    <span class="underline" (click)="websiteclick(website)">{{website}}</span></p>
+                <p *ngIf="twitter!= '' && twitter!= undefined">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                    <span class="underline" (click)="twitterclick(twitter)">{{twitter}}</span></p>
+-->
+                
+                
+                <div class="socialMediaAdmin" *ngIf="urldisplay" style="margin-top: 20px;" >
+                    
+            <p style="font-weight: 700 !important;" >Website & other URLs:</p>
+                
+                     <ion-icon name="ios-globe-outline" *ngIf="website" (click)="websiteclick()" style="padding: 7px 10px;"></ion-icon>
+                    
+                    <ion-icon name="logo-facebook" *ngIf="facebook" (click)="facebookclick()" style="padding: 7px 10px;"></ion-icon> 
+                
+                    <ion-icon name="logo-linkedin" *ngIf="linkedin" (click)="linkedinclick()" style="padding: 7px 10px;"></ion-icon>
+               
+                    <ion-icon name="logo-twitter" *ngIf="twitter"  (click)="twitterclick()" style="padding: 7px 10px;"></ion-icon>
+                 </div> 
+                
+			</div>
+		</div>
+       
+    </div>
+	
+</ion-content>

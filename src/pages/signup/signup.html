@@ -1,0 +1,73 @@
+<ion-header class="inputsPageHeader">
+  <ion-navbar hideBackButton>
+	  <ion-buttons end>
+    <button ion-button (click)="close()" class="closebutton"><ion-icon name="close-circle"></ion-icon></button>
+	  </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content  class="inputForms">
+	
+	<div class="verticalAlignMiddle">
+    	<div class="verticalAlignMiddleChild">
+            <ion-list>
+              <img src="assets/img/logo2.png" alt="Cloop Brand" width="100%" height="auto" />
+              <form #form="ngForm" novalidate>
+                  <ion-item>
+                    <ion-label  floating>{{ 'Name' | translate }}</ion-label>
+                    <ion-input [(ngModel)]="home.name" id="name" name="name" type="text" #name="ngModel" required pattern=".*\\S.*[a-zA-Z _-]{0,}"></ion-input>
+                </ion-item>
+				  <p *ngIf="(!name.valid && submitted)" color="danger"   class="leftvalidation">
+				    {{ 'Please enter name' | translate }}
+			     </p>
+                 
+<!--
+				  <ion-item class="mobileNumSelect" >
+                    <ion-label stacked *ngIf="!nocode">Phone</ion-label>
+					  <ion-label floating *ngIf="nocode">Phone</ion-label>
+                        <ion-select [(ngModel)]="home.mobpref" id="mobpref" name="mobpref" multiple="false" required *ngIf="!nocode">
+							<ion-option *ngFor="let result of coderesult" value="{{result.areaCode}}"> {{result.areaCode}}</ion-option>
+                        </ion-select>
+-->
+				  
+				   <ion-item class="mobileNumSelect" >
+                    <ion-label stacked *ngIf="!nocode">{{ 'Phone' | translate }}</ion-label>
+					  <ion-label floating *ngIf="nocode">{{ 'Phone' | translate }}</ion-label>
+                        <ion-select [(ngModel)]="home.mobpref" id="mobpref" name="mobpref" multiple="false" required *ngIf="!nocode">
+							<ion-option *ngFor="let result of coderesult" value="{{result.countryCode}}"> {{result.areaCode}}</ion-option>
+                        </ion-select>
+						 
+                          <ion-input [(ngModel)]="home.mobilenumber" id="mobilenumber" name="mobilenumber" type="tel" #mobilenumber="ngModel" required pattern="[0-9]*"></ion-input>
+                  </ion-item>
+				  
+				    <p *ngIf="(!mobilenumber.valid  && submitted)" color="danger"   class="leftvalidation">
+				        {{ 'Please enter phone number' | translate }}
+			     </p>
+
+				  
+               <ion-item>
+                    <ion-label floating>{{ 'Email' | translate }}</ion-label>
+                   <ion-input [(ngModel)]="home.email" type="email" name="email" #email="ngModel" ></ion-input>
+                  </ion-item>
+
+
+                <p *ngIf="(validEmail && email.valid)" color="danger" class="leftvalidation">
+                    {{ 'Please enter valid email' | translate }}
+                </p>
+                  
+                  <ion-item>
+                   <ion-label floating>{{ 'Password' | translate }}</ion-label>
+                    <ion-input [(ngModel)]="home.password" id="password" name="password" #password="ngModel" type="password" required pattern="[a-zA-Z0-9\s!@#$%^&*]+"></ion-input>
+                  </ion-item>
+				  <p *ngIf="(!password.valid && submitted)" color="danger" class="leftvalidation">
+				        {{ 'Please enter password' | translate }}
+			     </p>
+                
+                
+                
+                  <button block ion-button (click)="otp(form);">{{ 'Submit' | translate }}</button>
+              </form>
+            </ion-list>
+		</div>
+	</div>
+</ion-content>

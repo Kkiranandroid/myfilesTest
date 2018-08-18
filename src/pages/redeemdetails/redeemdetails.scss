@@ -1,0 +1,76 @@
+redeemdetails {
+	ion-item.item-input-has-value .item-inner input{
+		text-transform:uppercase;
+		font-weight:600;
+		transition:all .2s ease-in-out;
+	}
+	img{
+		margin-bottom: 20px;
+	}
+	
+	
+		
+.dispalyBlk{
+        display: block !important;
+    }
+	
+	ion-card{
+		width:100% !important;
+		margin:0px 0px 16px 0 !important;
+		border-radius: 10px !important;
+		
+		.giftCardImg{
+			height: 160px;
+			width:100%;
+			max-width:100%;
+			background-size:cover !important;
+			background-repeat:no-repeat !important;
+			background-position:center !important;
+		}
+		ion-card-content{
+			padding:0 10px !important;
+			ion-card-title{
+				font-size: 1.8rem !important;
+				color: #222 !important;
+				margin:0px !important;
+				font-weight: 600;
+			}
+			h6, p{
+				font-size: 14px !important;
+				margin-bottom:10px !important;
+				width: 50%;
+				color: #000 !important;
+				//text-align: center !important;
+				span{
+					display: block;
+					font-size: 20px;
+					line-height: 24px;
+					font-weight: 600;
+					color: #666;
+				}
+			}
+			h6{
+				float: left;
+				white-space:nowrap;
+				color: #ff0000 !important;
+			}
+			p{
+				float: right;
+				text-align: right;
+				
+				i{
+					vertical-align: middle;
+				}
+			}
+		}
+	}
+	ion-card:last-child{
+		margin:0px !important;
+	}
+}
+
+@media(max-width:345px){
+	viewcards ion-card ion-card-content p, viewcards ion-card ion-card-content h6{
+		font-size:12px !important;
+	}
+}

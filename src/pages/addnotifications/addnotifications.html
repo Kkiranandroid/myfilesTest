@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="md-menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'Add Notifications' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="redeemInputs">
+
+<ion-list no-lines>
+  <ion-item>
+    <ion-textarea placeholder="Notification"></ion-textarea>
+  </ion-item>
+  <p class="notificationInfo">{{ 'Please Note: This notification will send to all the user which are used your cards previously.' | translate }} </p>
+  <button class="sendBut" ion-button>{{ 'Send' | translate }}</button>
+
+</ion-list>
+
+
+</ion-content>

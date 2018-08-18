@@ -1,0 +1,31 @@
+<ion-header >
+  <ion-navbar hideBackButton>
+    <button ion-button menuToggle>
+      <ion-icon name="md-menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'Redeem' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="redeemInputs" >
+
+<ion-list  no-lines>
+
+	<ion-item>
+     <ion-input [(ngModel)]="scannedCode" placeholder="Enter 10 Digit Code" id="scannedCode" name="scannedCode" type="text"  required></ion-input>
+    </ion-item>
+	<p *ngIf="submitted && scannedCode.length== 0" color="danger"   class="leftvalidation">Please enter QR code</p>
+	<p *ngIf="submitted && scannedCode.length!=10 && scannedCode.length!=0" color="danger"   class="leftvalidation">{{ 'QR code must be 10 digits' | translate }}</p>
+	<p *ngIf="submitted && card && scannedCode.length==10" color="danger"   class="leftvalidation">{{apimessage}}</p>
+	
+</ion-list>
+
+<button block ion-button class="redeemBut" (click)="scanQr();" >{{ 'Next' | translate }}  </button>
+<div class="or" ></div>
+
+<div class="scanQr">
+	<img src="assets/img/qr-code.png" width="100" height="auto" >
+	<p (click)="scanCode();">{{ 'Scan' | translate }}</p>
+</div>
+
+</ion-content>

@@ -1,0 +1,8 @@
+{
+  "name": "Cloop",
+  "app_id": "18a92f1f",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

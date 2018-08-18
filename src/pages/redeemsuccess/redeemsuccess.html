@@ -1,0 +1,29 @@
+<!--<ion-header>
+
+  <ion-navbar>
+    <ion-title>redeemsuccess</ion-title>
+  </ion-navbar>
+
+</ion-header>-->
+
+<ion-content padding>
+
+<div class="redeemSuccess">
+	<div class="successIcon"> 
+    	<ion-icon name="md-checkmark"></ion-icon> 
+	</div>
+    <h3 *ngIf="scannedtype== 'gift'"> Transaction successful</h3>
+     <h3 *ngIf="scannedtype!= 'gift'">Redeemed successfully</h3>
+	
+	 <h4>#{{transactionid}}</h4>
+    <h5 *ngIf="scannedtype== 'gift'">Credit Points <span>${{price}}</span></h5>
+<!--
+	<h5 *ngIf="scannedtype== 'gift'">Gift card credits<span>${{price}}</span>redeemed successfully</h5>
+	<h5 *ngIf="scannedtype== 'punch'">Punch card redeemed successfully</h5>
+	<h5 *ngIf="scannedtype== 'coupon'">Coupon redeemed successfully </h5>
+-->
+	
+    <button block ion-button class="redeemBut" (click)="backToRedeem()"> Ok </button>
+</div>
+
+</ion-content>

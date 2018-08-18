@@ -1,0 +1,42 @@
+<ion-header class="inputsPageHeader">
+  <ion-navbar hideBackButton>
+	  <ion-buttons end>
+    <button ion-button (click)="close()" class="closebutton"><ion-icon name="close-circle"></ion-icon></button>
+	  </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content  class="inputForms">
+	
+	<div class="verticalAlignMiddle">
+		
+    	<div class="verticalAlignMiddleChild">
+            <ion-list>
+              <img src="assets/img/logo2.png" alt="Cloop Brand" width="100%" height="auto" />
+               <form #form="ngForm" novalidate>
+                   <ion-item>
+                    <ion-label floating>{{ 'Email' | translate }}</ion-label>
+                  <ion-input [(ngModel)]="home.email" type="email" name="email" #email="ngModel" required></ion-input>
+                  </ion-item>
+				   <p *ngIf="(!email.valid && submitted)" color="danger" class="leftvalidation">
+                    {{ 'Please enter email' | translate }}
+                </p>
+
+                <p *ngIf="(validEmail && email.valid)" color="danger" class="leftvalidation">
+                    {{ 'Please enter valid email' | translate }}
+                </p>
+                   <ion-item>
+                    <ion-label floating>{{ 'Password' | translate }}</ion-label>
+                    <ion-input [(ngModel)]="home.password" id="password" name="password" #password="ngModel" type="password" required pattern="[a-zA-Z0-9\s!@#$%^&*]+"></ion-input>
+                  </ion-item>
+				  <p *ngIf="(!password.valid && submitted)" color="danger" class="leftvalidation">
+				        {{ 'Please enter password' | translate }}
+			     </p>
+				   
+				 
+                  <button block ion-button (click)="redeem(form);">{{ 'Submit' | translate }}</button>
+              </form>
+            </ion-list>
+		</div>
+	</div>
+</ion-content>

@@ -1,0 +1,74 @@
+
+<!--
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>confirm</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+</ion-content>
+-->
+
+
+<ion-header class="inputsPageHeader">
+  <ion-navbar hideBackButton>
+	  <ion-buttons end>
+    <button ion-button (click)="close()" class="closebutton"><ion-icon name="close-circle"></ion-icon></button>
+	  </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content  class="inputForms">
+	
+	<div class="verticalAlignMiddle">
+    	<div class="verticalAlignMiddleChild">
+            <ion-list>
+              <img src="assets/img/logo2.png" alt="Cloop Brand" width="100%" height="auto" />
+              <form #form="ngForm" novalidate>
+   
+				   <ion-item>
+                   <ion-label floating>{{ 'New password' | translate }}</ion-label>
+                    <ion-input [(ngModel)]="home.password" id="password" name="password" #password="ngModel" type="password" required pattern="[a-zA-Z0-9\s!@#$%^&*]+"></ion-input>
+                  </ion-item>
+				  <p *ngIf="(!password.valid && submitted)" color="danger" class="leftvalidation">
+				        {{ 'Please enter New password' | translate }}
+			     </p>
+                  
+                   <ion-item>
+                   <ion-label floating>{{ 'Confirm password' | translate }}</ion-label>
+                    <ion-input [(ngModel)]="home.confirm" id="confirm" name="confirm" #confirm="ngModel" type="password" required pattern="[a-zA-Z0-9\s!@#$%^&*]+"></ion-input>
+                  </ion-item>
+				  <p *ngIf="(!confirm.valid && submitted)" color="danger" class="leftvalidation">
+				        {{ 'Please confirm the password' | translate }}
+			     </p>
+
+                  <p *ngIf="(confpassword && confirm.valid)" color="danger" class="leftvalidation">
+                      The passwords do not match
+                </p>
+                  
+                  
+
+
+                   <ion-item>
+                   <ion-label floating>{{ 'OTP' | translate }}</ion-label>
+                    <ion-input [(ngModel)]="home.otp" id="otp" name="otp" #otp="ngModel" type="text" required></ion-input>
+                  </ion-item>
+				  <p *ngIf="(!otp.valid && submitted)" color="danger" class="leftvalidation">
+				        {{ 'Please enter OTP' | translate }}
+			     </p>
+			     <p *ngIf="(confOtp && otp.valid)" color="danger" class="leftvalidation">
+				        {{ 'Please enter valid OTP' | translate }}
+			     </p>
+                
+                  <button block ion-button (click)="confirmed(form);">Submit</button>
+              </form>
+            </ion-list>
+		</div>
+	</div>
+</ion-content>
+

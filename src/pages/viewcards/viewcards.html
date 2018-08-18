@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <button ion-button menuToggle class="dispalyBlk">
+      <ion-icon name="md-menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'Cards' | translate }} &nbsp;&nbsp;&nbsp;<span *ngIf="selectcount!= 0">{{selectcount}}</span></ion-title>
+      
+	  <ion-buttons end >
+          
+            <button ion-button class="filterIcon" (click)="sortingShow()" *ngIf="!showiconarchive">
+                <ion-icon name="md-funnel"></ion-icon>
+				
+            </button>
+            <button ion-button class="filterIcon" (click)="filterShow()" *ngIf="!showiconarchive">
+                <ion-icon name="ios-funnel-outline"></ion-icon>
+            </button>
+
+          <button ion-button class="filterIcon" (click)="archivecard()" *ngIf="showiconarchive">
+                <ion-icon name="ios-archive-outline"></ion-icon>
+            </button>
+
+          
+          
+        </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+	<ion-refresher (ionRefresh)="doRefresh($event)" >
+    <ion-refresher-content> </ion-refresher-content>
+  </ion-refresher>
+		
+   
+        
+	 <div *ngIf="cards.length!=0"> 
+         
+    
+         
+<ion-card id="homeSlide{{i}}" class="cardlist" *ngFor="let card of cards; let i= index" (press)="multiplecards(cards, i)" (click)="clickcheck(cards, i)"  >
+
+		
+		<div *ngIf="card.card_details.cardImageUrl!= ''" class="giftCardImg" [style.background]="'url(' + card.card_details.cardImageUrl + ')'"></div>
+		<div *ngIf="card.card_details.cardImageUrl== ''" class="giftCardImg" [style.background]="'url(' + card.merchant_details.logo + ')'"></div>
+    
+<!--   <div class="giftCardImg" [style.background]="'url(http://www.cloopcard.com/cloopapi/uploads/default.png)'"></div>-->
+    
+      <ion-card-content *ngIf="card.card_details.cardType== 'gift' " >
+        <ion-card-title>{{card.card_details.cardTitle}}</ion-card-title>
+		  <p class="giftalign">{{card.balancetext}}: ${{card.remainingCreditPoints}}</p>
+<!--		  <h6>Expires on <span>{{card.card_details.expiryDate}}</span></h6>-->
+<!--          <h1>{{card.card_details.cardTitle}}</h1>-->
+      </ion-card-content>
+		
+		 <ion-card-content *ngIf="card.card_details.cardType== 'punch' " >
+        <ion-card-title>{{card.card_details.cardTitle}}</ion-card-title>
+		
+             <p>{{card.balancetext}} <span>{{card.timesPunched}}/{{card.card_details.punchCount}}</span></p>
+			 <h6>Expires on <span>{{card.card_details.expiryDate}}</span></h6>
+<!--              <h1>{{card.card_details.cardTitle}}</h1>-->
+      </ion-card-content>
+
+
+           <ion-card-content *ngIf="card.card_details.cardType== 'store' " >
+        <ion-card-title>{{card.card_details.cardTitle}}</ion-card-title>
+    
+            
+       <span><h6>Expires on <span>{{card.card_details.expiryDate}}</span></h6></span>
+        <p class="balence">{{card.balancetext}}: ${{card.remainingCreditPoints}}</p>
+<!--              <h1>{{card.card_details.cardTitle}}</h1>-->
+      </ion-card-content>
+
+		
+		 <ion-card-content *ngIf="card.card_details.cardType== 'coupon' " >
+        <ion-card-title>{{card.card_details.cardTitle}}</ion-card-title>
+			 <p>{{card.balancetext}} <span>{{card.card_details.discountPercent}}%</span></p>
+			 <h6>Expires on <span>{{card.card_details.expiryDate}}</span></h6>
+<!--              <h1>{{card.card_details.cardTitle}}</h1>-->
+      </ion-card-content>
+   
+    </ion-card>
+       
+	</div>
+<!--
+	 <div *ngIf="cards.length== 0 && loaded" class="noData" >No {{filter}} cards </div>
+	<div *ngIf="empty && (!loaded) && cards.length== 0" class="noData" >Welcome {{ nodatamessage }}, {{ 'you are not assigned with any cards' | translate }}  </div>
+-->
+    
+     <div *ngIf="cards.length== 0 && filter.length< 4" class="noData" >No {{filter}} cards </div>
+	<div *ngIf="cards.length== 0 && filter.length== 4 && status== false" class="noData" >Welcome {{ nodatamessage }}, {{ 'you are not assigned with any cards' | translate }}  </div>
+    <div *ngIf="cards.length== 0 && filter.length== 4 && status" class="noData" > No archived cards</div>
+	
+	 <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+     <ion-infinite-scroll-content> </ion-infinite-scroll-content>
+     </ion-infinite-scroll>
+	
+</ion-content>
+
+
+
+

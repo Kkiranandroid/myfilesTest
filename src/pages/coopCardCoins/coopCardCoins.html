@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="md-menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'Cloop Coins' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="redeemInputs" >
+ <ion-refresher (ionRefresh)="doRefresh($event)" >
+    <ion-refresher-content> </ion-refresher-content>
+  </ion-refresher>
+    
+   
+        
+   <div *ngIf="cards.length!=0"> 
+         
+    
+         
+<ion-card id="homeSlide{{i}}" class="cardlist" *ngFor="let card of cards; let i= index" (press)="multiplecards(cards, i)" (click)="clickcheck(cards, i)"  >
+
+    
+<!--     <div *ngIf="card.card_details.cardImageUrl!= ''" class="giftCardImg" [style.background]="'url(' + card.card_details.cardImageUrl + ')'"></div>
+    <div *ngIf="card.card_details.cardImageUrl== ''" class="giftCardImg" [style.background]="'url(' + card.merchant_details.logo + ')'"></div> -->
+
+
+        <div *ngIf="card.merchantUrl!= ''" class="giftCardImg" [style.background]="'url(' + card.merchantUrl + ')'"></div>
+    <div *ngIf="card.merchantUrl== ''" class="giftCardImg" [style.background]="'url(' + card.merchantlogo + ')'"></div>
+     
+      <ion-card-content >
+        <ion-card-title>{{card.merchantName}}</ion-card-title>
+<!--       <p class="giftalign">Balence: ${{card.creditCoins}}</p> -->
+      <p class="coinalign">Remaining Balance: {{getroundedcoins(card.remainingCoins)}} coins</p>
+      </ion-card-content>
+   <!--          <ion-card-content *ngIf="card.card_details.cardType== 'gift' " >
+        <ion-card-title>{{card.card_details.cardTitle}}</ion-card-title>
+      <p class="giftalign">{{card.balancetext}}: ${{card.remainingCreditPoints}}</p>
+      </ion-card-content> -->
+    
+    </ion-card>
+       
+  </div>
+
+    
+     <div *ngIf="noData" class="noData" >No records found</div>
+     
+<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+     <ion-infinite-scroll-content> </ion-infinite-scroll-content>
+     </ion-infinite-scroll>
+  
+</ion-content>

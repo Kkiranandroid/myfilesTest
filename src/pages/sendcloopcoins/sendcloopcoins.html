@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="md-menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'Send Cloop Coins' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="redeemInputs" >
+  <form #form="ngForm" novalidate>
+<ion-list  no-lines>
+
+	<ion-item>
+     <ion-input [(ngModel)]="phonenumeber" placeholder="Enter Phone Number" id="phonenumeber" name="phonenumeber" type="tel"  maxlength="10" required></ion-input>
+    </ion-item>
+	<p *ngIf="submitted && phonenumeber.length== 0" color="danger"   class="leftvalidation">Please enter phone number</p>
+
+
+	<ion-item>
+	  <ion-input class="amtinput" [(ngModel)]="amount" placeholder="Enter Amount" id="amount" name="amount" type="number" (keydown)="calculatePerecentage($event)" required></ion-input>
+    </ion-item>
+	<p *ngIf="submitted && amount.length== 0" color="danger"   class="leftvalidation">Please enter amount</p>
+
+
+	<ion-item>
+	  <ion-input [(ngModel)]="cloopcoins" disabled="true" readonly placeholder="Cloop Coins" id="cloopcoins" name="cloopcoins" type="number"  required></ion-input>
+    </ion-item>
+
+	<!-- <p *ngIf="submitted && cloopcoins.length== 0" color="danger"   class="leftvalidation">Please enter cloop card coins</p> -->
+</ion-list>
+
+
+<button block ion-button class="redeemBut" (click)="sendCloopCoins(form);" >{{ 'Send Coins' | translate }}  </button>
+</form>
+</ion-content>

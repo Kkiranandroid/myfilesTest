@@ -1,0 +1,14 @@
+signup {
+	.fixed-content, .scroll-content{
+		margin-top: 0 !important;
+	}	
+    
+     //for input field edit
+     ion-input, ion-textarea{
+    
+    .input-cover{
+        pointer-events: auto !important;
+    }
+}
+    
+}

@@ -1,0 +1,96 @@
+<ion-menu id="menuuser" [content]="content" type="overlay" class="sidemenu" >
+    <ion-content>
+            
+        <ion-list>
+			<button no-lines detail-none menuClose ion-item (click)="viewcards()">
+      	<ion-icon name="ios-card-outline"></ion-icon>
+        {{ 'Cards' | translate }}
+      </button>
+			
+			<button no-lines detail-none menuClose ion-item (click)="seeusage()">
+        <ion-icon name="ios-people-outline"></ion-icon>
+        {{ 'Usage' | translate }}
+      </button>
+
+      <button no-lines detail-none menuClose ion-item (click)="coopCardCoins()">
+<!--       	<ion-icon name="ios-people-outline"></ion-icon> -->
+       <!--  <i class="fa fa-database" aria-hidden="true"></i> -->
+        <img class="coinsimg" src="assets/icon/coins.png">
+        {{ 'Cloop Coins' | translate }}
+      </button>
+			
+			<button no-lines detail-none menuClose ion-item (click)="myprofile()">
+      	<ion-icon name="ios-person-outline"></ion-icon>
+        {{ 'Profile' | translate }}
+      </button>
+			
+            <button no-lines detail-none menuClose ion-item (click)="settings()">
+      	<ion-icon name="ios-settings-outline"></ion-icon>
+        {{ 'Settings' | translate }}
+      </button>
+            
+			<button no-lines detail-none menuClose ion-item (click)="notification()">
+      	<ion-icon name="ios-notifications-outline"></ion-icon>
+        {{ 'Notifications' | translate }}
+      </button>
+            
+            <button no-lines detail-none menuClose ion-item (click)="tutorial()">
+      	<ion-icon name="ios-paper-outline"></ion-icon>
+        {{ 'Tutorial' | translate }}
+      </button>
+            
+            <button no-lines detail-none menuClose ion-item (click)="logoutUser()">
+      	<ion-icon name="ios-log-out"></ion-icon>
+        {{ 'Logout' | translate }}
+      </button>
+            
+             
+			
+        </ion-list >
+    </ion-content>
+</ion-menu>
+
+<ion-menu id="menumerchant" [content]="content" type="overlay" class="sidemenu" >
+    <ion-content>
+        <ion-list>
+            
+             <button no-lines detail-none menuClose ion-item (click)="dashboard()">
+                <ion-icon name="grid"></ion-icon>
+                {{ 'Cloopcard Web App' | translate }}
+              </button>
+                       <button no-lines detail-none menuClose ion-item (click)="openMobileDashboard()">
+              	<ion-icon class="dashboard" name="md-desktop"></ion-icon>
+                {{ 'Dashboard' | translate }}
+              </button>
+                    
+        			<button no-lines detail-none menuClose ion-item (click)="redeem()">
+                <ion-icon name="ios-card"></ion-icon>
+                {{ 'Redeem' | translate }}
+              </button>
+              <button no-lines detail-none menuClose ion-item (click)="sendcloopcoins()">
+              	<!-- <ion-icon class="fa fa-bitcoin"></ion-icon> -->
+<!--                 <i class="fa fa-database" aria-hidden="true"></i> -->
+                <img class="coinsimg" src="assets/icon/coins.png">
+                {{ 'Send Cloop Coins' | translate }}
+              </button>
+            
+           
+			
+<!--
+			<button no-lines detail-none menuClose ion-item (click)="addnotification()">
+      	<ion-icon name="ios-notifications-outline"></ion-icon>
+        {{ 'Add Notifications' | translate }}
+      </button>
+-->
+			
+			<button no-lines detail-none menuClose ion-item (click)="logout()">
+      	<ion-icon name="ios-log-out"></ion-icon>
+        {{ 'Logout' | translate }}
+      </button>
+			
+        </ion-list >
+    </ion-content>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

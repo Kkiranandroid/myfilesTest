@@ -1,0 +1,25 @@
+page-tutorial {
+    .backgroun{
+        background-color: #ffffff !important;
+    }
+    .splashSlides{
+        .splashSlidesImg{
+            max-width: 250px;
+        }
+        .splashSlidesTitle{
+            font-size: 15px;
+            color: #008975;
+        }
+    }
+    
+    .swiper-pagination-bullet-active{
+        background: #008975;
+    }
+    
+    .slide-zoom{
+        margin-top: -20px;
+    }
+    button{
+      border-radius: 50px !important;
+    }
+}

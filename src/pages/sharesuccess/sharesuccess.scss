@@ -1,0 +1,112 @@
+page-sharesuccess {
+    
+    .removebox{
+        margin: 15px auto 0;
+    }
+    .successsharego{
+        //background-color: #00AA8D;
+        background-color: #ffffff;
+    }
+
+
+    .scroll-content{
+		//background:$headerBG !important;
+		background: #ffffff !important;
+	}
+	.redeemSuccess{
+		position:absolute;
+		top:0;
+		left:0;
+		bottom:0;
+		right:0px;
+		max-width:300px;
+		max-height:300px;
+		margin:auto;
+		text-align:center;
+		.successIcon{
+			background:rgba(0,0,0,0.3);
+			width:80px;
+			height:80px;
+			border-radius:50%;
+			text-align:center;
+			color:#fff;
+			font-size: 36px;
+			padding: 20px;
+			margin:0 auto;
+		}
+		h3{
+			color: #fff;
+			font-size: 20px;
+			margin: 25px 0 10px;
+		}
+		h4{
+			color: #fff;
+			font-size: 18px;
+			margin: 15px 0 10px;
+			font-weight:400;
+		}
+		h5{
+			color:#fff;
+			font-size: 18px;
+			margin: 15px 0 10px;
+			font-weight:400;
+			span{
+				font-weight:600;
+			}
+		}
+		.redeemBut{
+			max-width: 200px;
+            margin: 15px auto 0;
+            img{
+                    margin-left: 10px;
+    width: 20px;
+            }
+		}
+	}
+    
+    
+    /*New share design*/
+    
+    .headingRecip{
+        padding: 10px 20px;
+        color: #fff;
+        max-width: 220px;
+        text-transform: uppercase;
+        font-size: 18px;
+        text-align: center;
+        box-shadow: none !important;
+        border: none !important;
+    }
+
+    .whatsapp{
+    	    margin-left: -5px !important;
+    }
+    .socialShare{
+            margin-top: 10px;
+        button{
+            background: none;
+            /*background: #fff;*/
+            padding: 10px;
+            height: auto;
+            //color: #fff;
+            color: #000;
+            font-size: 20px;
+            box-shadow: none !important;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            &.activated{
+                background: none !important;
+            }
+        }
+    }
+    .noteinfo{
+       //color: #eeeeee;
+        color: #00AA8D;
+    margin: 40px 0 0;
+    font-style: italic;
+    font-size: 14px;
+    }
+    
+    
+    
+    
+}

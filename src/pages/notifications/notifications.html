@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="md-menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'Notifications' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<!--
+<ion-content padding>
+	<div *ngIf="fetchresult.length!=0 ">
+    <div class="notifictionMain" *ngFor="let list of fetchresult">
+        <div class="natifyTop">
+
+            <img *ngIf="list.notificationImageUrl!= ''" [(src)]="list.notificationImageUrl">
+             <img *ngIf="list.notificationImageUrl== ''" [(src)]="list.merchantlogo">
+        </div>
+        <p *ngIf="list.notificationMsg">{{list.notificationMsg}}</p>
+        <span>Sent on {{list.notificationDate}}</span>
+    </div>
+		</div>
+ <div *ngIf="fetchresult.length== 0 && loaded" class="noData" >{{ 'No notificatoins' | translate }}</div>
+
+	
+	 <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+     <ion-infinite-scroll-content> </ion-infinite-scroll-content>
+     </ion-infinite-scroll>
+</ion-content>
+-->
+
+<ion-content padding>
+   
+
+       <div *ngIf="fetchresult.length!=0">
+	
+		<ion-list class="notif" no-lines>
+			<ion-item *ngFor="let list of fetchresult" (click)="moveTomerchantdetailpage(list)">
+				
+				<img *ngIf="list.notificationImageUrl" [src]="list.notificationImageUrl">
+				<img *ngIf="!list.notificationImageUrl" [src]="list.merchantlogo">
+                
+<!--
+                <img  src="http://www.cloopcard.com/cloopapi/uploads/default.png">
+				
+-->
+                
+				
+				<div class="notificationContent">
+					
+					<h2  *ngIf="list.notificationMsg && list.notification_details.isRead">{{list.notificationMsg}}</h2>
+              		<h2  class="new" *ngIf="list.notificationMsg && !list.notification_details.isRead">{{list.notificationMsg}}</h2>
+					
+					<p>Sent on {{list.notificationDate}}</p>
+				</div>
+			</ion-item>
+			
+			
+		</ion-list>
+	
+	</div>
+
+	 <div *ngIf="fetchresult.length== 0 && loaded" class="noData" >{{ 'No notifications' | translate }}</div>
+ 
+	
+	 <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+     <ion-infinite-scroll-content> </ion-infinite-scroll-content>
+     </ion-infinite-scroll>
+</ion-content>

@@ -1,0 +1,51 @@
+redeemsuccess {
+	.scroll-content{
+		background:$headerBG !important;
+	}
+	.redeemSuccess{
+		position:absolute;
+		top:0;
+		left:0;
+		bottom:0;
+		right:0px;
+		max-width:300px;
+		max-height:300px;
+		margin:auto;
+		text-align:center;
+		.successIcon{
+			background:rgba(0,0,0,0.3);
+			width:80px;
+			height:80px;
+			border-radius:50%;
+			text-align:center;
+			color:#fff;
+			font-size: 36px;
+			padding: 18px;
+			margin:0 auto;
+		}
+		h3{
+			color: #fff;
+			font-size: 20px;
+			margin: 25px 0 10px;
+		}
+		h4{
+			color: #fff;
+			font-size: 18px;
+			margin: 15px 0 10px;
+			font-weight:400;
+		}
+		h5{
+			color:#fff;
+			font-size: 18px;
+			margin: 15px 0 10px;
+			font-weight:400;
+			span{
+				font-weight:600;
+			}
+		}
+		.redeemBut{
+			max-width: 100px;
+			margin:25px auto 0;
+		}
+	}
+}

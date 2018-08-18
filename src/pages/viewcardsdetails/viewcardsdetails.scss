@@ -1,0 +1,263 @@
+viewcardsdetails {
+	
+    .boldwebsite{
+        font-weight: 800px !important;
+    }
+    .numberclass{
+        color: royalblue;
+        font-weight: 600;
+    }
+    .underline{
+		text-decoration: underline;
+		color: royalblue;
+		font-weight: 600;
+	}
+    
+.qrcode{
+		img{
+		height: 210px !important;
+		width: 210px !important;
+		}
+	}
+	ion-header{
+		.toolbar-background{
+			/*opacity:0;*/
+			background: transparent;
+			border:none !important;
+			transition:all .2s ease;
+		}
+		.toolbar-title{
+			opacity:0;
+			transition:all .2s ease;
+		}
+	}
+	ion-header:after{
+		background:none !important;
+	}
+	.fixed-content, .scroll-content{
+		margin:0 !important;
+		overflow:hidden;
+	}
+	.giftCardImg{
+		height:200px;
+		width:100%;
+		max-width:100%;
+		background-size:cover !important;
+		background-repeat:no-repeat !important;
+		background-position:center !important;
+	}
+	.giftCardImg:before{
+		content:'';
+		background: -moz-linear-gradient(top, rgba(0,0,0,0.8) 0%, rgba(125,185,232,0) 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(top, rgba(0,0,0,0.8) 0%,rgba(125,185,232,0) 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#007db9e8',GradientType=0 ); /* IE6-9 */
+		width: 100%;
+		height: 50px;
+		position: absolute;
+		top: 0;
+		z-index:1;
+	}
+	.giftCardDetails{
+		position:absolute;
+		top:0px;
+		width: 100%;
+		height:100%;
+		overflow-y:auto;
+		z-index:2;
+		padding:0 16px;
+	}
+	.giftCardDetailsInner{
+		background: #fff;
+		margin-top: 160px;
+		border-radius: 10px;
+		position: relative;
+		box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
+		display: inline-block;
+		width:100%;
+		text-align:center;
+		i.fa-gift{
+			width: 50px;
+			height: 50px;
+			background: $headerBG;
+			color: #fff;
+			text-align: center;
+			padding: 12px 0 8px 0;
+			font-size: 24px;
+			border-radius: 50px;
+			position: absolute;
+			top: -25px;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+		}
+		h4{
+			font-size:18px;
+		    text-align: center;
+			margin: 20px 0 12px 0;
+			color:#3d3d3d;
+			font-weight:600;
+		}
+		.priceQuantity{
+		    width: 50%;
+           // width: 100%;
+		    text-align: center;
+    		padding: 10px 5px;
+			float:left;
+			color:#181818;
+			h6{
+			    margin: 5px 0;
+				font-weight:400;
+			}
+			h3, span{
+				font-size:20px;
+				margin: 0;
+			    font-weight: 600;
+				color:#181818;
+			}
+			span{
+				color:#8f8f8f;
+				text-decoration: line-through;
+			}
+			i{
+				font-size: 16px;
+			}
+		}
+        
+        
+        
+        .priceQuantitygift{
+		    //width: 50%;
+            width: 100%;
+		    text-align: center;
+    		//padding: 10px 5px;
+			float:left;
+			color:#181818;
+			h6{
+			    margin: 5px 0;
+				font-weight:400;
+			}
+			h3, span{
+				font-size:20px;
+				margin: 0;
+			    font-weight: 600;
+				color:#181818;
+			}
+			span{
+				color:#8f8f8f;
+				text-decoration: line-through;
+			}
+			i{
+				font-size: 16px;
+			}
+		}
+        
+        
+        
+	}
+	.giftCardDetailsInner2{
+		margin-top:18px;
+		
+		h5{
+			font-size:16px;
+			font-weight:400;
+			color:#8f8f8f;
+			margin:0 0 10px 0;
+		}
+		h2{
+			font-size:28px;
+			margin: 0;
+			color:$headerBG;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+		.or{
+			margin:13px 0 3px;
+			font-size:16px;
+			position:relative;
+			min-height: 30px;
+		}
+		.or:before {
+			content: 'or';
+			background: #dadada;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			border-radius: 50px;
+			padding: 3px;
+			z-index: 1;
+			box-sizing: border-box;
+			left:0;
+			right:0;
+			margin:0 auto;
+		}
+		.or:after {
+			content: '';
+			width: 100%;
+			height: 1px;
+			background: rgba(0, 0, 0, 0.08);
+			position: absolute;
+			left: 0;
+			right: 0;
+			margin: auto;
+			top: 15px;
+		}
+		
+		h4{
+			margin:0px;
+		}
+        .merchantInfo{
+			text-align: left;
+			img{
+				float: right;
+				max-width: 100px;
+    			max-height: 50px;
+				border-radius: 3px;
+			}
+			h1{
+				font-size: 18px;
+				font-weight: 600;
+				margin: 0;
+			}
+			p{
+				font-size: 16px;
+				font-weight: 600;
+				margin: 7px 0 0;
+				color: #333;
+				i, ion-icon{
+					display: table-cell;
+    				width: 20px;
+					font-size: 16px;
+					vertical-align: top;
+    				padding-top: 4px;
+				}
+				span{
+					display: table-cell;
+					font-weight: 600;
+                    word-break: break-word;
+				}
+			}
+		}
+	}
+	.giftCardDetailsInner2:last-child{
+		margin-bottom: 20px;
+	}
+    
+    
+    
+    .socialMediaAdmin{
+        margin-top: 10px;
+        ion-icon{
+            padding: 15px 10px;
+    font-size: 24px;
+        }
+        
+    }
+    
+    
+}
+@media(max-width:359px){
+	.priceQuantity h6{
+		font-size:13px;
+	}
+}

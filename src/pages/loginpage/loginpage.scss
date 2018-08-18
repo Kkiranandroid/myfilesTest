@@ -1,0 +1,34 @@
+page-loginpage {
+    
+     a{
+			float: right;
+			color: #fff;
+			text-decoration: none;
+			font-size: 14px;
+			//padding: 5px 0;
+			font-style: italic;
+			white-space: nowrap;
+            padding-top: 5px;
+            padding-right: 0px;
+            padding-bottom: 15px;
+            padding-left: 0px;
+		}
+
+    .fixed-content, .scroll-content{
+		margin-top: 0 !important;
+	}
+    
+      //for input field edit
+     ion-input, ion-textarea{
+    
+    .input-cover{
+        pointer-events: auto !important;
+    }
+     button{
+      border-radius: 50px !important;
+    }
+}
+    a{
+      color:$headerBG !important;
+    }
+}

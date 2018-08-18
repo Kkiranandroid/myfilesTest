@@ -1,0 +1,26 @@
+page-reset {
+
+    
+         a{
+			float: right;
+			color: #fff;
+			text-decoration: none;
+			font-size: 14px;
+			padding: 5px 0;
+			font-style: italic;
+			white-space: nowrap;
+		}
+
+    .fixed-content, .scroll-content{
+		margin-top: 0 !important;
+	}
+    
+      //for input field edit
+     ion-input, ion-textarea{
+    
+    .input-cover{
+        pointer-events: auto !important;
+    }
+}
+    
+}

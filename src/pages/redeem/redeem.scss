@@ -1,0 +1,52 @@
+redeem {
+	ion-item.item-input-has-value .item-inner input{
+		text-transform:uppercase;
+		font-weight:600;
+		transition:all .2s ease-in-out;
+	}
+	.or{
+		margin:20px;
+		font-size:16px;
+		position:relative;
+		min-height: 30px;
+		text-align:center;
+	}
+	.or:before {
+		content: 'or';
+		background: #dadada;
+		width: 30px;
+		height: 30px;
+		position: absolute;
+		border-radius: 50px;
+		padding: 3px;
+		z-index: 1;
+		box-sizing: border-box;
+		left:0;
+		right:0;
+		margin:0 auto;
+	}
+	.or:after {
+		content: '';
+		width: 100%;
+		height: 1px;
+		background: rgba(0, 0, 0, 0.08);
+		position: absolute;
+		left: 0;
+		right: 0;
+		margin: auto;
+		top: 15px;
+	}
+	.scanQr{
+		text-align:center;
+		p{
+			padding:10px;
+			background:$buttons;
+			max-width:100px;
+			margin:10px auto;
+			color:#fff;
+			text-transform:uppercase;
+			font-size:16px;
+		    border-radius: 30px;
+		}
+	}
+}
